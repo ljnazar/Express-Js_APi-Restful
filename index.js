@@ -1,17 +1,18 @@
-import express from 'express';
-import { promises as fs } from 'fs';
-import path from 'path';
-//const express = require('express');
+//import express from 'express';
+//import fs from 'fs';
+//import path from 'path';
+const express = require('express');
+const fs = require('fs');
 //import path from 'path';
 //const path = require('path');
-import { readFileSync } from 'fs';
+//import { readFileSync } from 'fs';
 
-const port = 3000;
+const port = 5000;
 const app = express();
 
 //app.use(express.static('public'))
 
-/*
+
 let obj;
 let json;
 
@@ -30,15 +31,15 @@ app.get('/tableScore', (req, res) => {
     //res.json(obj); // object
     //res.json({nombre: "Lean"});
     res.json(json); // object string
-});*/
+});
 
 //export default function handler(req, res) {
-export default (req, res) => {
+/*export default (req, res) => {
 //export default app.get('/tableScore', (req, res) => { 
   const stringified = readFileSync('table-score.json', 'utf8');
   res.setHeader('Content-Type', 'application/json');
   return res.end(stringified);
-};
+};*/
 
 /*
 export default async function handler(req, res) {
@@ -89,4 +90,4 @@ app.listen(port, () => {
 });
 //app.listen(process.env.PORT || 3000);
 
-//module.exports = app;
+module.exports = app;
