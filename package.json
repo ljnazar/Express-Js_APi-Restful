@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ljnazar/express#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "uuid": "^9.0.0"
   }
 }
