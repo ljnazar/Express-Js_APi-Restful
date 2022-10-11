@@ -92,19 +92,19 @@ app.post('/profile', function (req, res, next) {
 
 
 
-const { v4 } = require('uuid');
+//const { v4 } = require('uuid');
 
 app.get('/api', (req, res) => {
-  const path = `/api/item/${v4()}`;
+  //const path = `/api/item/${v4()}`;
   res.setHeader('Content-Type', 'application/json');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.end(`Hello! Go to item: <a href="${json}">${obj}</a>`);
+  //res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.end(`${json} - ${obj}`);
 });
-
+/*
 app.get('/api/item/:slug', (req, res) => {
   const { slug } = req.params;
   res.end(`Item: ${slug} ${json} ${obj}`);
-});
+});*/
 
 
 
