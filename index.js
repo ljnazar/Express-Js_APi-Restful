@@ -24,9 +24,8 @@ fs.readFile('table-score.json', 'utf8', function readFileCallback(err, data){
 
 app.get('/tableScore', (req, res) => {
     //res.sendFile('table-score.json', {root: path.join(__dirname, 'public')});
-    //res.json(obj); // object
-    console.log(json);
-    res.json(json); // object string
+    res.json(obj); // object
+    //res.json(json); // object string
 });
 
 /*
