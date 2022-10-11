@@ -104,7 +104,7 @@ app.get('/api', (req, res) => {
   //res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   asd = res.json(json);
   qwe = res.json(obj);
-  res.end(`${asd} - ${qwe}`);
+  res.end(`obj: ${asd} - string: ${qwe}`);
 });
 /*
 app.get('/api/item/:slug', (req, res) => {
