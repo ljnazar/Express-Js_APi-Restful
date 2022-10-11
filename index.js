@@ -12,12 +12,12 @@ const app = express();
 
 //app.use(express.static('public'))
 
-const jsonDirectory = path.join(process.cwd(), 'json');
+//const jsonDirectory = path.join(process.cwd(), 'json');
 
 let obj;
 let json;
 
-fs.readFile(jsonDirectory + 'table-score.json', 'utf8', function readFileCallback(err, data){
+fs.readFile('table-score.json', 'utf8', function readFileCallback(err, data){
     if (err){
         console.log(err);
     } else {
