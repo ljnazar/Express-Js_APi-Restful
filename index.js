@@ -4,7 +4,7 @@
 const express = require('express');
 const fs = require('fs');
 //import path from 'path';
-const path = require('path');
+//const path = require('path');
 //import { readFileSync } from 'fs';
 
 const port = 5000;
@@ -18,7 +18,8 @@ const app = express();
 let obj;
 let json;
 
-fs.readFile(__dirname + '/table-score.json', 'utf8', function readFileCallback(err, data){
+//fs.readFile(__dirname + '/table-score.json', 'utf8', function readFileCallback(err, data){
+  fs.readFile(__dirname + '/table-score.json', 'utf8', (err, data) => {
     if (err){
         console.log(err);
     } else {
@@ -96,21 +97,12 @@ app.post('/profile', function (req, res, next) {
 
 
 
-//const { v4 } = require('uuid');
-
-app.get('/api', (req, res) => {
-  //const path = `/api/item/${v4()}`;
+app.get('/getData', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  //res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.json(json);
   //res.json(obj);
-  //res.end(`obj: ${asd} - string: ${qwe}`);
 });
-/*
-app.get('/api/item/:slug', (req, res) => {
-  const { slug } = req.params;
-  res.end(`Item: ${slug} ${json} ${obj}`);
-});*/
+
 
 
 
