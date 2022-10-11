@@ -14,7 +14,7 @@ const app = express();
 
 //const jsonDirectory = path.join(process.cwd(), 'json');
 
-/*
+
 let obj;
 let json;
 
@@ -27,7 +27,7 @@ fs.readFile('table-score.json', 'utf8', function readFileCallback(err, data){
     json = JSON.stringify(obj); //convert it back to json
     //fs.writeFile('myjsonfile.json', json, 'utf8', callback); // write it back 
 }});
-
+/*
 app.get('/tableScore', (req, res) => {
     //res.sendFile('table-score.json', {root: path.join(__dirname, 'public')});
     //res.json(obj); // object
@@ -103,7 +103,7 @@ app.get('/api', (req, res) => {
 
 app.get('/api/item/:slug', (req, res) => {
   const { slug } = req.params;
-  res.end(`Item: ${slug}`);
+  res.end(`Item: ${slug} ${json}`);
 });
 
 
