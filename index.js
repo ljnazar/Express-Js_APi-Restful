@@ -1,5 +1,5 @@
 import express from 'express';
-import fs from 'fs';
+//import { promises as fs } from 'fs';
 //const express = require('express');
 //import path from 'path';
 //const path = require('path');
@@ -9,9 +9,10 @@ const app = express();
 
 //app.use(express.static('public'))
 
+/*
 let obj;
 let json;
-/*
+
 fs.readFile('table-score.json', 'utf8', function readFileCallback(err, data){
     if (err){
         console.log(err);
@@ -21,12 +22,21 @@ fs.readFile('table-score.json', 'utf8', function readFileCallback(err, data){
     json = JSON.stringify(obj); //convert it back to json
     //fs.writeFile('myjsonfile.json', json, 'utf8', callback); // write it back 
 }});
-*/
+
 app.get('/tableScore', (req, res) => {
     //res.sendFile('table-score.json', {root: path.join(__dirname, 'public')});
     //res.json(obj); // object
-    res.json({nombre: "Lean"});
-    //res.json(json); // object string
+    //res.json({nombre: "Lean"});
+    res.json(json); // object string
+});*/
+
+import { readFileSync } from 'fs';
+
+//export default function handler(req, res) {
+export default app.get('/tableScore', (req, res) => { 
+  const stringified = readFileSync('table-score.json', 'utf8');
+  res.setHeader('Content-Type', 'application/json');
+  return res.end(stringified);
 });
 
 /*
