@@ -110,7 +110,7 @@ app.get('/api', (req, res) => {
   //const path = `/api/item/${v4()}`;
   res.setHeader('Content-Type', 'application/json');
   //res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.end(`${json} - ${obj}`);
+  res.end(`${json(json)} - ${json(obj)}`);
 });
 /*
 app.get('/api/item/:slug', (req, res) => {
