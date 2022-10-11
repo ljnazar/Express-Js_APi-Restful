@@ -31,7 +31,8 @@ app.get('/tableScore', (req, res) => {
     //res.sendFile('table-score.json', {root: path.join(__dirname, 'public')});
     //res.json(obj); // object
     //res.json({nombre: "Lean"});
-    res.json(json); // object string
+    //res.json(json); // object string
+    res.end(json);
 });
 /*
 export default function handler(req, res) {
