@@ -1,8 +1,9 @@
 import express from 'express';
-//import { promises as fs } from 'fs';
+import { promises as fs } from 'fs';
 //const express = require('express');
 //import path from 'path';
 //const path = require('path');
+//import { readFileSync } from 'fs';
 
 const port = 3000;
 const app = express();
@@ -30,7 +31,6 @@ app.get('/tableScore', (req, res) => {
     res.json(json); // object string
 });*/
 
-import { readFileSync } from 'fs';
 /*
 export default function handler(req, res) {
 //export default app.get('/tableScore', (req, res) => { 
@@ -40,6 +40,16 @@ export default function handler(req, res) {
 };*/
 
 
+export default async function handler(req, res) {
+  //Find the absolute path of the json directory
+  //const jsonDirectory = path.join(process.cwd(), 'json');
+  //Read the json data file data.json
+  const fileContents = await fs.readFile('table-score.json', 'utf8');
+  //Return the content of the data file in json format
+  res.status(200).json(fileContents);
+}
+
+/*
 app.get('/tableScore', (req, res) => {
     //res.sendFile('table-score.json', {root: path.join(__dirname, 'public')});
     //res.json(obj); // object
@@ -48,7 +58,7 @@ app.get('/tableScore', (req, res) => {
     const stringified = readFileSync('table-score.json', 'utf8');
     res.setHeader('Content-Type', 'application/json');
     res.json(stringified);
-});
+});*/
 
 /*
 app.route('/events')
