@@ -11,7 +11,8 @@ const app = express();
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+    res.sendFile('table-score.json', {root: path.join(__dirname, 'public')});
+    console.log("asd");
 })
 
 app.listen(port, () => {
