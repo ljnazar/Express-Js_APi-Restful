@@ -31,19 +31,23 @@ app.get('/tableScore', (req, res) => {
 });*/
 
 import { readFileSync } from 'fs';
-
+/*
 export default function handler(req, res) {
 //export default app.get('/tableScore', (req, res) => { 
   const stringified = readFileSync('table-score.json', 'utf8');
   res.setHeader('Content-Type', 'application/json');
   return res.end(stringified);
-};
+};*/
+
 
 app.get('/tableScore', (req, res) => {
     //res.sendFile('table-score.json', {root: path.join(__dirname, 'public')});
     //res.json(obj); // object
     //res.json({nombre: "Lean"});
-    res.json(handler()); // object string
+    //res.json(json); // object string
+    const stringified = readFileSync('table-score.json', 'utf8');
+    res.setHeader('Content-Type', 'application/json');
+    res.json(stringified);
 });
 
 /*
