@@ -4,7 +4,7 @@ import path from 'path';
 //const express = require('express');
 //import path from 'path';
 //const path = require('path');
-//import { readFileSync } from 'fs';
+import { readFileSync } from 'fs';
 
 const port = 3000;
 const app = express();
@@ -32,15 +32,15 @@ app.get('/tableScore', (req, res) => {
     res.json(json); // object string
 });*/
 
-/*
-export default function handler(req, res) {
+//export default function handler(req, res) {
+export default (req, res) => {
 //export default app.get('/tableScore', (req, res) => { 
   const stringified = readFileSync('table-score.json', 'utf8');
   res.setHeader('Content-Type', 'application/json');
   return res.end(stringified);
-};*/
+};
 
-
+/*
 export default async function handler(req, res) {
   //Find the absolute path of the json directory
   const jsonDirectory = path.join(process.cwd(), 'json');
@@ -48,7 +48,7 @@ export default async function handler(req, res) {
   const fileContents = await fs.readFile(jsonDirectory + '/table-score.json', 'utf8');
   //Return the content of the data file in json format
   res.status(200).json(fileContents);
-}
+}*/
 
 /*
 app.get('/tableScore', (req, res) => {
