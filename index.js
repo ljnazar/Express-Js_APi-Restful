@@ -3,12 +3,12 @@
 //import path from 'path';
 const express = require('express');
 const fs = require('fs');
-const cors = require('cors');
+//const cors = require('cors');
 //import path from 'path';
 //const path = require('path');
 //import { readFileSync } from 'fs';
 
-app.use(cors());
+//app.use(cors());
 const port = 5000;
 const app = express();
 
@@ -99,7 +99,7 @@ app.post('/profile', function (req, res, next) {
 
 
 
-app.get('/getData', (req, res) => {
+app.get('/api/getData', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.json(json);
   //res.json(obj);
