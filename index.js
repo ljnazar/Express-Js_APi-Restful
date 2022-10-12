@@ -3,12 +3,11 @@
 //import path from 'path';
 const express = require('express');
 const fs = require('fs');
-//const cors = require('cors');
 //import path from 'path';
 //const path = require('path');
 //import { readFileSync } from 'fs';
 
-//app.use(cors());
+
 const port = 5000;
 const app = express();
 
