@@ -100,17 +100,23 @@ app.post('/profile', function (req, res, next) {
 
 app.get('/api/getData', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
+  // allow Cors
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '/api/*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
   res.json(json);
   //res.json(obj);
 });
 
 
-
+/*
 const allowCors = fn => async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  // another common pattern
-  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Origin', '/api/*')
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
   res.setHeader(
     'Access-Control-Allow-Headers',
@@ -121,14 +127,8 @@ const allowCors = fn => async (req, res) => {
     return
   }
   return await fn(req, res)
-}
-
-const handler = (req, res) => {
-  const d = new Date()
-  res.end(d.toString())
-}
-
-
+};
+*/
 
 
 
@@ -137,6 +137,6 @@ app.listen(port, () => {
 });
 //app.listen(process.env.PORT || 3000);
 
-//module.exports = app;
+module.exports = app;
 
-module.exports = allowCors(app);
+//module.exports = allowCors(app);
