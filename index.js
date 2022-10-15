@@ -15,22 +15,43 @@ const app = express();
 
 //const jsonDirectory = path.join(process.cwd(), 'json');
 
-
-let obj;
 let json;
 
 //fs.readFile(__dirname + '/table-score.json', 'utf8', function readFileCallback(err, data){
-  fs.readFile(__dirname + '/table-score.json', 'utf8', (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-    obj = JSON.parse(data); //now it an object
+fs.readFile(__dirname + '/table-score.json', 'utf8', (err, data) => {
+  if (err){
+    console.log(err);
+  } else {
+
+    let obj = JSON.parse(data); //now it an object
     //obj.table.push({id: 2, square:3}); //add some data
+
+    obj.push({name: "Luis", score :1740});
+    console.log(obj);
+
     json = JSON.stringify(obj); //convert it back to json
-    //fs.writeFile('myjsonfile.json', json, 'utf8', callback); // write it back 
-}});
+    console.log(json);
 
+    fs.writeFile(__dirname + '/table-score.json', json, 'utf8', err => {
+      if (err) throw err;
+      console.log('Saved!');
+    });
 
+    //obj.push({name: "Luis", score :1740})
+    //console.log(obj);
+  }
+});
+/*
+console.log(json);
+
+fs.writeFile(__dirname + '/table-score.json', 'asd', 'utf8', err => {
+  if (err) throw err;
+  console.log('Saved!');
+  //err && console.log(err);
+  //console.log(json + 'hola');
+  //console.log(err.message);
+});
+*/
 
 
 /*
@@ -101,14 +122,30 @@ app.post('/profile', function (req, res, next) {
 app.get('/api/getData', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   // allow Cors
-  res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
   res.setHeader(
     'Access-Control-Allow-Headers',
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  )
+  );
   res.json(json);
+  //res.json(obj);
+});
+
+app.post('/api/test', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  // allow Cors
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+  res.json(req);
+  res.json(req.body);
+  res.json({ message: 'holas' });
   //res.json(obj);
 });
 
