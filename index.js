@@ -32,13 +32,12 @@ fs.readFile(__dirname + '/table-score.json', 'utf8', (err, data) => {
     json = JSON.stringify(obj); //convert it back to json
     console.log(json);
 
-    fs.writeFile(__dirname + '/table-score.json', json, 'utf8', err => {
+    /////////////////////////////////////////
+    /*fs.writeFile(__dirname + '/table-score.json', json, 'utf8', err => {
       if (err) throw err;
       console.log('Saved!');
-    });
+    });*/
 
-    //obj.push({name: "Luis", score :1740})
-    //console.log(obj);
   }
 });
 /*
