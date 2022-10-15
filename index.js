@@ -33,10 +33,10 @@ fs.readFile(__dirname + '/table-score.json', 'utf8', (err, data) => {
     console.log(json);
 
     /////////////////////////////////////////
-    /*fs.writeFile(__dirname + '/table-score.json', json, 'utf8', err => {
+    fs.writeFile(__dirname + '/table-score.json', json, 'utf8', err => {
       if (err) throw err;
       console.log('Saved!');
-    });*/
+    });
 
   }
 });
